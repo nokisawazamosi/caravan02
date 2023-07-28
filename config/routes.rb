@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   root to: "homes#top"
   get 'homes/about' => 'homes#about', as:'about'
 
-  resouces :blogs, only: [:new, :indet, :show]
+  resources :blogs
 
 end

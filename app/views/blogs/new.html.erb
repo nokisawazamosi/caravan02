@@ -1,2 +1,10 @@
 
-<!--blogの投稿フォーム--
+<!--blogの投稿フォーム-->
+<%= form_with model: @blog do |f| %>
+ <%#= f.label :title %>
+ <%= f.text_field :blog_title, placeholder: "タイトルを入力してください" %><br>
+ <%#= f.label :opinion %>
+ <%= f.text_field :caption %><br>
+ <%= f.file_field :image, accept: "image/*" %><br>
+ <%= f.submit '投稿する' %>
+<% end %>
