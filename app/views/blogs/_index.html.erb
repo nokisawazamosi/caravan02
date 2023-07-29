@@ -13,6 +13,11 @@
      </td>
      <td><%= link_to blog.blog_title,blog_path(blog.id) %><br>
      <%= blog.created_at.strftime('%b/%e/%Y') %></td>
+     <td><%= link_to blog_blog_comments_path(blog) do %>
+       <i class="fa-solid fa-comment-dots"></i>
+     <% end %>
+     </td>
+     <td><%= blog.blog_comments.count %></td>
     </tr>
     <% end %>
   </tbody>

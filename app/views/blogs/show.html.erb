@@ -1,9 +1,36 @@
+<!-- ブログ詳細ﾍﾟｰｼﾞ-->
+
 <div>
   <%= image_tag @blog.get_image %>
   <p>Title: <%= @blog.blog_title %></p>
   <p>Caption: <%= @blog.caption %></p>
   <p>Date: <%= @blog.created_at.strftime('%b/%e/%Y') %></p>
+  <p>コメント: <%= @blog.blog_comments.count %> 件</p>
   <% if @blog.user == current_user %>
     <%= link_to "Delete", blog_path(@blog), method: :delete %>
   <% end %>
 </div>
+
+<!-- コメント送信フォーム-->
+
+<div>
+  <%= form_with model: [@blog, @blog_comment] do |f| %>
+    <%= f.text_area :comment, rows: '25%', placeholder: "コメント" %>
+    <%= f.submit "送信" %>
+  <% end %>
+</div>
+
+<!-- コメント一覧 -->
+
+<div>
+  <% @blog.blog_comments.each do |blog_comment| %>
+   <p><%= image_tag blog_comment.user.get_profile_image(50,50) %></p>
+   <%= blog_comment.user.name %>
+   <%= blog_comment.comment %>
+   <%= blog_comment.created_at.strftime('%b/%e/%Y') %>
+   <% if blog_comment.user == current_user %>
+     <%= link_to "Delete", blog_blog_comment_path(blog_comment.blog, blog_comment), method: :delete %>
+   <% end %>
+  <% end %>
+</div>
+
