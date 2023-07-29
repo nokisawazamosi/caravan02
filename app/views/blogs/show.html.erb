@@ -1,2 +1,9 @@
-<h1>Blogs#show</h1>
-<p>Find me in app/views/blogs/show.html.erb</p>
+<div>
+  <%= image_tag @blog.get_image %>
+  <p>Title: <%= @blog.blog_title %></p>
+  <p>Caption: <%= @blog.caption %></p>
+  <p>Date: <%= @blog.created_at.strftime('%b/%e/%Y') %></p>
+  <% if @blog.user == current_user %>
+    <%= link_to "Delete", blog_path(@blog), method: :delete %>
+  <% end %>
+</div>
