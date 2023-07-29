@@ -1,6 +1,11 @@
 <div>
   <h3><%= @user.name %></h3>
   <%= image_tag @user.get_profile_image(100,100) %>
+  <% if @user == current_user %>
+    <%= link_to edit_user_path(@user) do %>
+      <i class="fa-solid fa-gear"></i>
+    <% end %>
+  <% end %>
 </div>
 
 <%= render 'blogs/index', blogs: @blogs %>
