@@ -7,31 +7,15 @@
     <%= csp_meta_tag %>
 
     <script src="https://kit.fontawesome.com/dd0fbec5b8.js" crossorigin="anonymous"></script>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <header>
-      <% if user_signed_in? %>
-       <li>
-         <%= link_to "投稿フォーム", new_blog_path %>
-       </li>
-       <li>
-         <%= link_to "Home", user_path(current_user.id) %>
-       </li>
-       <li>
-         <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
-       </li>
-      <% else %>
-       <li>
-         <%= link_to "Sign Up", new_user_registration_path %>
-       </li>
-       <li>
-         <%= link_to "Log In", new_user_session_path %>
-       </li>
-      <% end %>
+      <%= render 'layouts/header' %>
     </header>
     <%= yield %>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
