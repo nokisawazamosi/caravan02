@@ -1,24 +1,30 @@
-<table>
-  <tr>
-    <th>
-      <h2>Recent Blogs</h2>
-    </th>
-  </tr>
-  <tbody>
+
+<div class="container">
+<h2 class="text-center my-2">Recent Blogs</h2>
+  <div class="card-list py-5">
     <% blogs.each do |blog| %>
-    <tr>
-     <td><%= link_to blog_path(blog.id) do %>
-       <%= image_tag blog.get_image %>
-     <% end %>
-     </td>
-     <td><%= link_to blog.blog_title,blog_path(blog.id) %><br>
-     <%= blog.created_at.strftime('%b/%e/%Y') %></td>
-     <td><%= link_to blog_blog_comments_path(blog) do %>
-       <i class="fa-solid fa-comment-dots"></i>
-     <% end %>
-     </td>
-     <td><%= blog.blog_comments.count %></td>
-    </tr>
+    <div class="card w-50 mx-auto mt-4 shadow-lg">
+      <%= link_to blog_path(blog.id) do %>
+       <%= image_tag blog.get_image, class:"card-img-top" %>
+      <% end %>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-10">
+            <p class="card-title">
+              <%= link_to blog.blog_title,blog_path(blog.id) %>
+            </p>
+            <span><%= render 'likes/btn', blog: blog %></span>
+            <p class="card-text">
+              <span><%= link_to blog_blog_comments_path(blog) do %>
+               <i class="fa-solid fa-comment-dots"></i>
+              <% end %>
+              <%= blog.blog_comments.count %></span>
+              <span><%= blog.created_at.strftime('%b/%e/%Y') %></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>

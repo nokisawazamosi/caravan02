@@ -9,6 +9,7 @@
   <% if @blog.user == current_user %>
     <%= link_to "Delete", blog_path(@blog), method: :delete %>
   <% end %>
+  <%= render 'likes/btn', blog: @blog %>
 </div>
 
 <!-- コメント送信フォーム-->

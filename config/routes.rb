@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
   resources :blogs do
     resources :blog_comments, only: [:index, :create, :destroy]
+    resource :likes, only: [:create, :destroy]
   end
 
 end
