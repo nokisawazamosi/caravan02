@@ -15,5 +15,6 @@ Rails.application.routes.draw do
     resources :blog_comments, only: [:index, :create, :destroy]
     resource :likes, only: [:create, :destroy]
   end
+  get '/search' => 'searches#search'
 
 end

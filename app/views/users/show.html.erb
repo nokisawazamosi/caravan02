@@ -1,6 +1,7 @@
+<div><%= render "searches/form", user: @user %></div>
 <div>
-  <h3><%= @user.name %></h3>
   <%= image_tag @user.get_profile_image(100,100) %>
+  <h3><%= @user.name %></h3>
   <p class="text-small"><%= link_to @user.followings.count, user_followings_path(@user) %>フォロー|
   <%= link_to @user.followers.count, user_followers_path(@user) %>フォロワー</p>
   <div>

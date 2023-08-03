@@ -1,0 +1,9 @@
+<% comments.each do |blog_comment| %>
+   <p><%= image_tag blog_comment.user.get_profile_image(50,50) %></p>
+   <%= blog_comment.user.name %>
+   <%= blog_comment.comment %>
+   <%= blog_comment.created_at.strftime('%b/%e/%Y') %>
+   <% if blog_comment.user == current_user %>
+     <%= link_to "Delete", blog_blog_comment_path(blog_comment.blog, blog_comment), method: :delete %>
+   <% end %>
+<% end %>

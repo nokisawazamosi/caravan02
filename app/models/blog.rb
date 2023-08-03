@@ -16,4 +16,17 @@ class Blog < ApplicationRecord
     end
       image
   end
+
+  def self.search_for(word, method)
+    if method == 'perfect'
+      Blog.where(blog_title: word)
+    elsif method == 'foward'
+      Blog.where('blog_title LIKE?', word + '%')
+    elsif method == 'backword'
+      Blog.where('blog_title LIKE?', '%' + word)
+    else
+      Blog.where('blog_title LIKE?', '%' + word + '%')
+    end
+  end
+
 end

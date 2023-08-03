@@ -13,7 +13,9 @@
             <p class="card-title">
               <%= link_to blog.blog_title,blog_path(blog.id) %>
             </p>
-            <span><%= render 'likes/btn', blog: blog %></span>
+            <span id="like_btn_<%= blog.id %>">
+              <%= render 'likes/btn', blog: blog %>
+            </span>
             <p class="card-text">
               <span><%= link_to blog_blog_comments_path(blog) do %>
                <i class="fa-solid fa-comment-dots"></i>

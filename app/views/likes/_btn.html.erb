@@ -1,10 +1,10 @@
 <% if blog.liked_by?(current_user) %>
-  <%= link_to blog_likes_path(blog), method: :delete do %>
+  <%= link_to blog_likes_path(blog), method: :delete, remote: true do %>
     <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
     <%= blog.likes.count %>
   <% end %>
 <% else %>
-  <%= link_to blog_likes_path(blog), method: :post do %>
+  <%= link_to blog_likes_path(blog), method: :post, remote: true do %>
     <i class="fas fa-heart" aria-hidden="true"></i>
     <%= blog.likes.count %>
   <% end %>
