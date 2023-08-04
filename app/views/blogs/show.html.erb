@@ -6,7 +6,7 @@
   <p>Caption: <%= @blog.caption %></p>
   <p>Date: <%= @blog.created_at.strftime('%b/%e/%Y') %></p>
   <!--コメント数-->
-  <p><%= render "blog_comments/count", blog: @blog %></p>
+  <p id="comment_count"><%= render "blog_comments/count", blog: @blog %></p>
 
   <% if @blog.user == current_user %>
     <%= link_to "Delete", blog_path(@blog), method: :delete %>
@@ -16,13 +16,13 @@
 
 <!-- コメント送信フォーム-->
 
-<div>
-  <%= render "blog_comments/form", blog: @blog, blog_comment: @blog_comment %>
-</div>
+
+<%= render "blog_comments/form", blog: @blog, blog_comment: @blog_comment %>
+
 
 <!-- コメント一覧 -->
 
-<div>
-  <%= render "blog_comments/index", comments: @blog.blog_comments %>
+<div id="comment_index">
+  <%= render "blog_comments/index", blog: @blog %>
 </div>
 

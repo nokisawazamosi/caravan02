@@ -17,7 +17,7 @@
               <%= render 'likes/btn', blog: blog %>
             </span>
             <p class="card-text">
-              <span><%= link_to blog_blog_comments_path(blog) do %>
+              <span><%= link_to blog_blog_comments_path(blog.id) do %>
                <i class="fa-solid fa-comment-dots"></i>
               <% end %>
               <%= blog.blog_comments.count %></span>
