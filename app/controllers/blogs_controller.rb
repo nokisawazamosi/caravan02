@@ -17,7 +17,7 @@ class BlogsController < ApplicationController
   end
 
   def index
-    @blogs = Blog.all
+    @blogs = Blog.page(params[:page])
   end
 
   def edit
@@ -27,10 +27,11 @@ class BlogsController < ApplicationController
   def show
     @blog = Blog.find(params[:id])
     @blog_comment = BlogComment.new
+    @comments = @blog.blog_comments.page(params[:page])
   end
 
   def destroy
-    blog = Blog.find(params[:id])
+    @blog = Blog.find(params[:id])
     blog.destroy
     redirect_to blogs_path
   end

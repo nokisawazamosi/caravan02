@@ -11,8 +11,13 @@
       <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to user_path(current_user.id), class:'nav-link' do %>
+            <%= link_to blogs_path, class:'nav-link' do %>
               <p class="font-italic">Home</p>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to user_path(current_user.id), class:'nav-link' do %>
+              <p class="font-italic">User</p>
             <% end %>
           </li>
           <li class="nav-item">
