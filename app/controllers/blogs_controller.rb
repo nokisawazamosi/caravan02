@@ -32,14 +32,14 @@ class BlogsController < ApplicationController
 
   def destroy
     @blog = Blog.find(params[:id])
-    blog.destroy
+    @blog.destroy
     redirect_to blogs_path
   end
 
   private
 
   def blog_params
-    params.require(:blog).permit(:blog_title, :caption)
+    params.require(:blog).permit(:blog_title, :caption, :image)
   end
 
 end

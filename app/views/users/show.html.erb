@@ -2,15 +2,18 @@
 <div>
   <%= image_tag @user.get_profile_image(100,100) %>
   <h3><%= @user.name %></h3>
-  <p class="text-small"><%= link_to @user.followings.count, user_followings_path(@user) %>フォロー|
-  <%= link_to @user.followers.count, user_followers_path(@user) %>フォロワー</p>
+  <p class="text-small">
+    <%= render 'relationships/count', user: @user %>
+  </p>
   <div>
     <% if @user == current_user %>
       <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary" do %>
         <i class="fa-solid fa-gear"></i>
       <% end %>
     <% else %>
+    <span class="follow_btn_<%= @user.id %>">
       <%= render "relationships/follow_btn", user: @user %>
+    </span>
     <% end %>
   </div>
 </div>
