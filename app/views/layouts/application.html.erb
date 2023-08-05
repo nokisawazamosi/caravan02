@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-100">
   <head>
     <title>Caravan02</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,11 +11,13 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column h-100">
     <header>
       <%= render 'layouts/header' %>
     </header>
     <%= yield %>
-    <%= render 'layouts/footer' %>
+    <footer class="footer bg-secondary text-white mt-auto">
+      <%= render 'layouts/footer' %>
+    </footer>
   </body>
 </html>

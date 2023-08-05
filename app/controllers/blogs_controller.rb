@@ -17,7 +17,7 @@ class BlogsController < ApplicationController
   end
 
   def index
-    @blogs = Blog.page(params[:page])
+    @blogs = Blog.page(params[:page]).order(created_at: :desc)
   end
 
   def edit
@@ -27,7 +27,7 @@ class BlogsController < ApplicationController
   def show
     @blog = Blog.find(params[:id])
     @blog_comment = BlogComment.new
-    @comments = @blog.blog_comments.page(params[:page])
+    @blog_comments = @blog.blog_comments.page(params[:page])
   end
 
   def destroy

@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+/*.background {*/
+/*  background-image: image-url('no_image.jpg');*/
+/*}*/

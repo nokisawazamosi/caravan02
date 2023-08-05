@@ -15,8 +15,8 @@ class BlogCommentsController < ApplicationController
   end
 
   def index
-    @blog = Blog.find(params[:blog_id])
-    @comments = @blog.blog_comments
+    blog = Blog.find(params[:blog_id])
+    @blog_comments = blog.blog_comments.order(created_at: :desc).page(params[:page])
   end
 
   private
